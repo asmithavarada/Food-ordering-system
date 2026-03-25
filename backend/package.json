@@ -1,0 +1,14 @@
+{
+  "name": "food-ordering-backend",
+  "version": "1.0.0",
+  "description": "Food Ordering System Backend",
+  "scripts": {
+    "dev": "mvn spring-boot:run",
+    "start": "mvn spring-boot:run",
+    "build": "mvn clean package",
+    "test": "mvn test"
+  },
+  "keywords": ["spring-boot", "java", "api"],
+  "author": "",
+  "license": "ISC"
+}

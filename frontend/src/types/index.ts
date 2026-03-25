@@ -8,6 +8,7 @@ export interface Restaurant {
   category: 'veg' | 'non-veg' | 'both';
   location?: string;
   offerBadge?: string;
+  isVeg?: boolean;
 }
 
 export interface Food {
@@ -22,10 +23,35 @@ export interface Food {
   rating?: number;
   prepTime?: number;
   isBestseller?: boolean;
+  isVeg?: boolean;
+}
+
+export interface FoodItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  category: string;
+  restaurantId: string;
+  isVeg: boolean;
+  isBestseller: boolean;
 }
 
 export interface CartItem extends Food {
   quantity: number;
+  foodItemId?: string;
+  foodItemName?: string;
+  foodItemPrice?: number;
+}
+
+export interface CartResponse {
+  items: CartItem[];
+  subtotal: number;
+  deliveryFee: number;
+  tax: number;
+  total: number;
+  totalItems: number;
 }
 
 export interface Order {
@@ -37,6 +63,16 @@ export interface Order {
   total: number;
   timestamp: Date;
   status: 'pending' | 'confirmed' | 'preparing' | 'delivered';
+}
+
+export interface OrderRequest {
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  deliveryAddress: string;
+  paymentMethod: string;
+  items: CartItem[];
+  promoCode?: string;
 }
 
 export interface FormData {

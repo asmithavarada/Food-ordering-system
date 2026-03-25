@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, Trash2, ShoppingBag, CreditCard, Clock, Tag } from 'lucide-react';
-import { useCartStore, useCartTotals, useCartItems, usePromoCode, useDeliveryTime, usePaymentMethod } from '../store/useCartStore';
+import { useCartStore, useCartTotals, useCartItems, usePromoCode, useDeliveryTime } from '../store/useCartStore';
 import { useUIStore } from '../store/useUIStore';
 import FallbackImage from './FallbackImage';
 
@@ -14,8 +14,6 @@ const Cart: React.FC = () => {
     removeItem,
     updateQuantity,
     clearCart,
-    addItem,
-    setPromoCode,
     setDeliveryTime,
     setPaymentMethod,
     applyPromoCode,
@@ -27,7 +25,7 @@ const Cart: React.FC = () => {
   const totals = useCartTotals();
   const promoCode = usePromoCode();
   const deliveryTime = useDeliveryTime();
-  const paymentMethod = usePaymentMethod();
+  // paymentMethod is used later in the component
 
   const { isCartOpen, toggleCart, isDarkMode, addToast } = useUIStore();
 

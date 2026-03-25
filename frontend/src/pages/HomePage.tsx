@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
       filtered = filtered.filter(restaurant =>
         restaurant.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         restaurant.cuisine.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        restaurant.location.toLowerCase().includes(searchQuery.toLowerCase())
+        (restaurant.location && restaurant.location.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     }
 

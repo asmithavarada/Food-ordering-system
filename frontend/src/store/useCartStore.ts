@@ -118,7 +118,6 @@ export const useCartStore = create<CartStore>()(
       },
 
       applyPromoCode: (code) => {
-        const currentSubtotal = getSubtotal(get());
         const currentDiscount = getDiscount(get());
         
         if (currentDiscount > 0) {
@@ -130,7 +129,7 @@ export const useCartStore = create<CartStore>()(
       },
 
       placeOrder: () => {
-        const { items, promoCode, deliveryTime, paymentMethod } = get();
+        const { items } = get();
         if (items.length === 0) return null;
 
         const order: Order = {
